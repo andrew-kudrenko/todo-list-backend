@@ -1,0 +1,4 @@
+{
+  "port": 7000,
+  "mongouri": "mongodb+srv://admiin:mkd-R7H-5B8-h9K@cluster0.8xasy.mongodb.net"
+}
