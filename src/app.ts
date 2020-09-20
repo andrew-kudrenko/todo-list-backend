@@ -1,13 +1,13 @@
 import express, { Application } from 'express'
-import config from 'config'
-import bodyParser from 'body-parser'
+import dotenv from 'dotenv'
 import recordsRouter from './routes/records.routes'
 
-const port = config.get('port') || 7000
+dotenv.config()
+
+const port = process.env.PORT || 7000
 const app: Application = express()
 
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+app.use(express.json())
 
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', '*')

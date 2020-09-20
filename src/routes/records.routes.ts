@@ -24,6 +24,7 @@ const router = Router();
         const found = await Record.findById(_id)
 
         if (!found && title.length) {
+          console.log('creating...')
           await new Record({ ...req.body }).save()
           return res.status(201).json(null)
         }
