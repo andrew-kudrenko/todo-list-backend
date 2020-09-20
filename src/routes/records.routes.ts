@@ -19,18 +19,16 @@ const router = Router();
     })
     .post(async (req, res) => {
       try {
-        console.log(req.body)
         const { _id, title } = req.body
         const found = await Record.findById(_id)
 
         if (!found && title.length) {
-          console.log('creating...')
-          await new Record({ ...req.body }).save()
+          await new Record({...req.body}).save()
           return res.status(201).json(null)
         }
-
+        
         res.json(`Record ${_id} is already exists`)
-
+        
       } catch (e) {
         res.status(500).json(e)
       }
